@@ -4,15 +4,17 @@
 SFTP_SERVER="sftp@cdn.vanillaplus.org"
 FILE_PATH="/upload/Data/patch-3.MPQ"
 DATE_FILE="last_modified_date.txt"
+REPOSITORY_PATH="your/repo/path/here"
 export SSHPASS=sftp
 
 # Define the patch function
 patch() {
     echo "Running patch process..."
     # Add your patching logic here. For example, if you want to download the file:
-    cd /mnt/a771ad7a-6267-4350-8d46-c3e04b29e85e/Repos/vanillaplus-talent-calculator
+    cd $REPOSITORY_PATH
     npx tsx ./src/trees/DBC/extractor.ts
     npx tsx ./src/trees/generator/generateTrees.ts
+    npm run deploy
     echo "Patch process completed."
 }
 

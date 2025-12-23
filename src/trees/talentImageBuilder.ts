@@ -1,9 +1,6 @@
 import { getTalentRank, TalentData } from "../TalentContext";
 import { State } from "../TalentContext/types";
 import { requireAll } from "../utils";
-const backgrounds = requireAll(
-  require.context("./../assets/tree-backgrounds/paladin"),
-);
 const icons = requireAll(require.context("../assets/icons"));
 
 export function buildTalentImages(tree: TalentData, treeIcon: string, specName: string){
