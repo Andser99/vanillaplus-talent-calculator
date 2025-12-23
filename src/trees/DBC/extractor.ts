@@ -7,7 +7,7 @@ import { spellIconDBCSchema } from "./schema/spellIcon";
 import * as https from "https";
 import { spellDurationDBCSchema } from "./schema/spellDuration";
 import { spellRadiusDBCSchema } from "./schema/spellRadius";
-const skipDownload = true;
+const skipDownload = false;
 const downloadAddress = "https://vanillaplus.org/uploads/patch-3.MPQ";
 const skipMpqExtraction = false;
 
