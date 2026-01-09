@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[281],{9162:function(c,e,n){n.r(e),n.d(e,{default:function(){return i}});var t=n(2791),l=n.n(t),o=n(8980),a={Affliction:(0,o.c)("Warlock","Affliction"),Demonology:(0,o.c)("Warlock","Demonology"),Destruction:(0,o.c)("Warlock","Destruction")},r=n(5091),u=(0,n(5538).iD)(a),i=function(){return l().createElement(u,null,l().createElement(r.s,{klass:"Warlock"}))}}}]);
+//# sourceMappingURL=281.ee1e540c.chunk.js.map
