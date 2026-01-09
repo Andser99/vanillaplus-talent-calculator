@@ -1,5 +1,6 @@
 import { State, TalentData } from "./types";
 import { encodeState, decodeState, trimEnd } from "../utils";
+import { getTalentVersion } from "./versionProvider";
 
 const SPLIT_SYMBOL = "-";
 
@@ -15,7 +16,7 @@ export const getStateFromHash = (data: TalentData, hash: string = "") => {
   const hashes = hash.split(SPLIT_SYMBOL);
   return Object.entries(data).reduce<State>((prev, [treeName, treeData], i) => {
     prev[treeName] = getTreeStateFromHash(
-      Object.keys(treeData.talents),
+      Object.keys(treeData[getTalentVersion()].talents),
       hashes[i],
     );
     return prev;
