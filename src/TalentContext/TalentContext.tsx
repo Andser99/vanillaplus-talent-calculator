@@ -9,10 +9,11 @@ import {
   getTalentDependents,
 } from "./selectors";
 import { makeReducer } from "./reducer";
+import { getTalentVersion } from "./versionProvider";
 
 const createInitialState = (data: TalentData) =>
   Object.entries(data).reduce<State>((prev, [treeName, tree]) => {
-    prev[treeName] = Object.keys(tree.talents).reduce<Record<string, number>>(
+    prev[treeName] = Object.keys(tree[getTalentVersion()].talents).reduce<Record<string, number>>(
       (prev, talentName) => {
         prev[talentName] = 0;
         return prev;

@@ -52,14 +52,16 @@ export interface Arrow {
 }
 
 export interface TalentData {
-  [tree: string]: {
-    name: string;
-    background: string;
-    icon: string;
-    talents: {
-      [talent: string]: Talent;
-    };
-  };
+  [tree: string]: TalentVersion[]
+}
+
+export interface TalentVersion {
+  name: string;
+  background: string;
+  icon: string;
+  talents: {
+    [talent: string]: Talent;
+};
 }
 
 export interface State {

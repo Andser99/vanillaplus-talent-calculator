@@ -1,5 +1,6 @@
 import { State, TalentData } from "./types";
 import { config } from "../config";
+import { getTalentVersion } from "./versionProvider";
 
 export const getTalentRank = (state: State, tree: string, talent: string) => {
   return state[tree][talent];
@@ -10,11 +11,11 @@ export const getTalentData = (
   tree: string,
   talent: string,
 ) => {
-  return data[tree].talents[talent];
+  return data[tree][getTalentVersion()].talents[talent];
 };
 
 const getTreeTalents = (data: TalentData, tree: string) => {
-  return data[tree].talents;
+  return data[tree][getTalentVersion()].talents;
 };
 
 export const getTreeData = (data: TalentData, tree: string) => {

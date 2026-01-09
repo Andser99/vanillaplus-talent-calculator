@@ -2,6 +2,7 @@ import { TalentData } from "../../TalentContext";
 import { addTalentsForTabId } from "./talentCreator";
 import * as fs from 'fs';
 import tabIdsJson from "../DBC/TabId.json";
+import { TalentVersion } from "../../TalentContext/types";
 
 function generateAllTrees() {
     for (let tabId in tabIdsJson) {
@@ -13,27 +14,22 @@ function generateAllTrees() {
 }
 
 function generateTree(tabId: number, specName: string, className: string) {
-    let tree: TalentData = {} as TalentData;
-    tree[specName] =
-    {
+    let tree = JSON.parse(fs.readFileSync(`./src/trees/${className}/${specName}.json`, "utf-8")) as TalentData;
+    let talentVersion: TalentVersion = {} as TalentVersion;
+    talentVersion = {
         name: specName,
         "background": specName.toLowerCase(),
         "icon": "",
         "talents": {}
     };
-    addTalentsForTabId(tree, tabId, specName);
+    addTalentsForTabId(talentVersion, tabId, specName);
+    tree[specName].push(talentVersion);
     saveTree(tree, specName, className);
 }
 
 function saveTree(tree: TalentData, treeName: string, className: string) {
-    // console.log(tree);
-    fs.writeFile(`./src/trees/${className}/${treeName}.json`, JSON.stringify(tree), handleErrors);
-}
-
-function handleErrors(err: any) {
-    if (err) {
-        return console.error(err);
-    }
+    let jsonToWrite = JSON.stringify(tree);
+    fs.writeFileSync(`./src/trees/${className}/${treeName}.json`, jsonToWrite);
 }
 
 generateAllTrees();

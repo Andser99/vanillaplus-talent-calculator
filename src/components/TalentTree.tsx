@@ -7,6 +7,7 @@ import { Talent } from "./Talent";
 import { SquareButton } from "./SquareButton";
 import { ClearButton } from "./ClearButton";
 import { getTreePointsSpent, getTreeData } from "../TalentContext/selectors";
+import { getTalentVersion } from "../TalentContext/versionProvider";
 
 interface Props {
   name: string;
@@ -21,7 +22,7 @@ export const TalentTree: React.FC<Props> = ({ name, children }) => {
     <TreeContext.Provider value={name}>
       <div className="TalentTree">
         <header className="TalentTree-header">
-          <SquareButton className="TalentTree-icon" icon={treeData.icon} />
+          <SquareButton className="TalentTree-icon" icon={treeData[getTalentVersion()].icon} />
           <div style={{ flex: 1 }}>
             <h2 className="TalentTree-name" style={{ flex: 1 }}>
               {name}
@@ -34,9 +35,9 @@ export const TalentTree: React.FC<Props> = ({ name, children }) => {
         </header>
         <div
           className="TalentTree-grid"
-          style={{ backgroundImage: `url(${treeData.background})` }}
+          style={{ backgroundImage: `url(${treeData[getTalentVersion()].background})` }}
         >
-          {Object.keys(treeData.talents).map(talentName => (
+          {Object.keys(treeData[getTalentVersion()].talents).map(talentName => (
             <Talent key={talentName} name={talentName} />
           ))}
           {children}

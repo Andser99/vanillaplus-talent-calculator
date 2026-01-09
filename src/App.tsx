@@ -1,5 +1,6 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { Route } from "react-router-dom";
+import exampleTree from "./trees/Druid/Balance.json"
 
 import "./App.css";
 import { KlassList } from "./components/KlassList";
@@ -15,9 +16,37 @@ const Warlock = lazy(() => import("./trees/Warlock"));
 const Warrior = lazy(() => import("./trees/Warrior"));
 const ScarletMonastery = lazy(() => import("./trees/ScarletMonastery"));
 
+export default function NumberDropdown() {
+  const [value, setValue] = useState(
+    () => localStorage.getItem("talent-version") ?? Object.keys(exampleTree.Balance).length
+  );
+
+  return (
+    <div>
+      <p style={{color: "#ffd100", paddingBottom: "5px", fontSize: "large"}}>Select Talent Version</p>
+    <select
+      value={value}
+      onChange={(e) => {
+        const v = e.target.value;
+        setValue(v);
+        localStorage.setItem("talent-version", v);
+        window.location.reload();
+      }}
+    >
+      <option value="">-- Select --</option>
+      {Array.from({ length: Object.keys(exampleTree.Balance).length }, (_, i) => i).map((n) => (
+        <option key={n} value={n}>
+          {n}
+        </option>
+      ))}
+      </select></div>
+  );
+}
+
 export const App: React.FC = () => {
   return (
     <div className="App">
+      <NumberDropdown></NumberDropdown>
       <KlassList />
       <Suspense fallback={null}>
         <Route path="/druid" component={Druid} />

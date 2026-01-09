@@ -82,7 +82,9 @@ export function getTalentTree(className: string, specName: string) {
     const specInfo = classInfo.find(spec => spec.spec === specName);
     if (specInfo) {
       let treeJson = specInfo.json as unknown as TalentData;
-      buildTalentImages(treeJson, specInfo.icon, specName);
+      for (var x of treeJson[specName]) {
+        buildTalentImages(x, specInfo.icon, specName);
+      }
       return treeJson[specName];
     } else {
       console.error(`Spec '${specName}' not found in class '${className}'`);

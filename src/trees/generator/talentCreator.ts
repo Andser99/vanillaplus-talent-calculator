@@ -2,12 +2,12 @@
 import talentJson from "../DBC/json/Talent.json";
 import { tierToPosition } from "../../TalentContext/conversions";
 import { iconDictionary, spellDictionary, spellDurationDictionary, spellRadiusDictionary, talentDictionary } from "../DBC/dbcData";
-import { Arrow, Talent, TalentData } from "../../TalentContext/types";
+import { Arrow, Talent, TalentData, TalentVersion } from "../../TalentContext/types";
 import { parse, Replacement } from "./descriptionParser";
 import { ArrowDir } from "../../TalentContext";
 import patchJson from "./manualTalentPatches.json";
 
-export function addTalentsForTabId(tree: TalentData, tabId: number, treeName: string) {
+export function addTalentsForTabId(tree: TalentVersion, tabId: number, treeName: string) {
     let specTalents = talentJson.filter(_ => _.TabID === tabId)
     for (let talent of specTalents) {
         let spells = getSpellsForTalent(talent);
@@ -27,7 +27,7 @@ export function addTalentsForTabId(tree: TalentData, tabId: number, treeName: st
             arrows: getArrow(talent),
             icon: iconDictionary[spells[0]["SpellIconID"]]
         };
-        tree[treeName].talents[talentName] = newTalent;
+        tree.talents[talentName] = newTalent;
         patch(newTalent);
     }
 }
