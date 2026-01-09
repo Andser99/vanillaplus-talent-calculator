@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[690],{4232:function(n,t,e){e.r(t),e.d(t,{default:function(){return o}});var a=e(2791),l=e.n(a),c=e(8980),i={Holy:(0,c.c)("Paladin","Holy"),Protection:(0,c.c)("Paladin","Protection"),Retribution:(0,c.c)("Paladin","Retribution")},r=e(5091),u=(0,e(5538).iD)(i),o=function(){return l().createElement(u,null,l().createElement(r.s,{klass:"Paladin"}))}}}]);
-//# sourceMappingURL=690.5a83b0bb.chunk.js.map

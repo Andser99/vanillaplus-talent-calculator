@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[196],{5218:function(e,t,n){n.r(t),n.d(t,{default:function(){return i}});var a=n(2791),u=n.n(a),s=n(8980),c={Assassination:(0,s.c)("Rogue","Assassination"),Combat:(0,s.c)("Rogue","Combat"),Subtlety:(0,s.c)("Rogue","Subtlety")},l=n(5091),o=(0,n(5538).iD)(c),i=function(){return u().createElement(o,null,u().createElement(l.s,{klass:"Rogue"}))}}}]);
-//# sourceMappingURL=196.94db57c8.chunk.js.map
