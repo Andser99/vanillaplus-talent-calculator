@@ -30,11 +30,7 @@ export default function NumberDropdown() {
         const v = e.target.value;
         setValue(v);
         localStorage.setItem("talent-version", v);
-        let u = new URL(window.location.href), s = u.pathname.split('/').filter(Boolean);
-        if (s.at(-1) !== '#') s.pop();
-        u.pathname = '/' + s.join('/');
-        window.history.replaceState(null, '', u.toString()); // update URL without navigating
-        window.location.reload(); // force hard reload
+        window.location.reload();
       }}
     >
       <option value="">-- Select --</option>
