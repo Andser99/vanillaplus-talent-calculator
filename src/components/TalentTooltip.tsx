@@ -51,6 +51,7 @@ export const TalentTooltip = React.forwardRef<HTMLDivElement, Props>(
         )}
         {(talentData.cost !== "" || talentData.cooldown !== "") && (
           <table className="TalentTooltipTable">
+            <tr>
             <td>
               {talentData.cost !== "" && (
                 <p>
@@ -64,7 +65,16 @@ export const TalentTooltip = React.forwardRef<HTMLDivElement, Props>(
                   {talentData.cooldown}
                 </p>
               )}
-            </td>
+              </td>
+              </tr>
+              <tr>
+            <td className="TalentTooltipColumn-castTime">
+              {talentData.castTime !== "" && (
+                <p>
+                  {talentData.castTime}
+                </p>
+              )}
+              </td></tr>
           </table>
         )}
         <p className="TalentTooltip-description">

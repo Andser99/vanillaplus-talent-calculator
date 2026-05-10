@@ -13,6 +13,9 @@
 .TalentTooltipColumn-cooldown {
   text-align: right;
 }
+.TalentTooltipColumn-castTime {
+  text-align: left;
+}
 
 .TalentTooltipTable {
   width: 100%;

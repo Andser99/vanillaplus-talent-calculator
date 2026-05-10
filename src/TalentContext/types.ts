@@ -39,8 +39,9 @@ export interface Talent {
   dependencyName: string;
   maxRank: number;
   reqPoints: number;
-  cost: string,
-  cooldown: string,
+  cost: string;
+  cooldown: string;
+  castTime: string;
   prereq?: string;
   arrows?: Arrow[];
 }
@@ -48,7 +49,7 @@ export interface Talent {
 export interface Arrow {
   dir: ArrowDir;
   from: Position;
-  to: Position
+  to: Position;
 }
 
 export interface TalentData {
