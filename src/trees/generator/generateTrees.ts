@@ -23,6 +23,10 @@ function generateTree(tabId: number, specName: string, className: string) {
         "talents": {}
     };
     addTalentsForTabId(talentVersion, tabId, specName);
+
+    // Comment out to overwrite the latest version instead of creating a new one
+    // E.g. fixing the currently deploying tree
+    //tree[specName].pop();
     tree[specName].push(talentVersion);
     saveTree(tree, specName, className);
 }
