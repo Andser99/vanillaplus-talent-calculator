@@ -5,6 +5,7 @@ import logo from "./assets/smlogo.png";
 
 import "./App.css";
 import { KlassList } from "./components/KlassList";
+import { TalentIdToVersion } from "./TalentContext/TalentIdToVersion";
 
 const Druid = lazy(() => import("./trees/Druid"));
 const Hunter = lazy(() => import("./trees/Hunter"));
@@ -48,7 +49,7 @@ export default function NumberDropdown() {
           <option value="">-- Select --</option>
           {Array.from({ length: Object.keys(exampleTree.Balance).length }, (_, i) => i).map((n) => (
             <option key={n} value={n}>
-              {n}
+              V{n} --- {TalentIdToVersion(n)}
             </option>
           ))}
         </select>
