@@ -1,3 +1,63 @@
 .App {
   overflow: hidden;
 }
+
+.talent-picker {
+  background: #151515;
+  color: #ffd100;
+  border: 1px solid #8b6b1f;
+  border-radius: 0;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: inset 0 0 2px rgba(255, 209, 0, 0.2);
+}
+
+.talent-picker:hover {
+  border-color: #ffd100;
+  box-shadow:
+    0 0 4px rgba(255, 209, 0, 0.5),
+    inset 0 0 2px rgba(255, 209, 0, 0.3);
+}
+
+.talent-picker:focus {
+  border-color: #ffd100;
+  box-shadow:
+    0 0 6px rgba(255, 209, 0, 0.7),
+    inset 0 0 2px rgba(255, 209, 0, 0.3);
+}
+
+.talent-picker option {
+  background: #151515;
+  color: #ffd100;
+}
+
+.sm-banner {
+  user-select: none;
+  margin-top: 8px;
+  color: #ffd100;
+  font-weight: bold;
+  text-shadow: 0 0 4px #c41e3a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sm-banner-logo {
+  height: 3em;
+}
+
+.version-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.version-label {
+  color: #ffd100;
+  padding-right: 5px;
+  font-size: large;
+}

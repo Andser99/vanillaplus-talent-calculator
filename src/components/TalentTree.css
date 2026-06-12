@@ -1,29 +1,38 @@
 .TalentTree {
-  font-family: Verdana, sans-serif;
-  background: var(--col-background);
-  border: 1px solid var(--col-background);
-  border-radius: 2px;
+  font-family: "Cinzel", "Times New Roman", serif;
+  background: linear-gradient(180deg, #141414 0%, #0b0b0b 100%);
+  border: 2px solid #3a2a14;
+  border-radius: 6px;
   margin: var(--sp-sm);
+  box-shadow:
+    inset 0 0 0 1px #000,
+    0 6px 18px rgba(0, 0, 0, 0.65);
 }
 
 .TalentTree-header {
   margin: var(--sp-xs);
   display: flex;
   align-items: center;
+  padding: var(--sp-xs);
+  border-bottom: 1px solid rgba(255, 180, 60, 0.15);
 }
 
 .TalentTree-icon {
   margin-right: var(--sp-sm);
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
 }
 
 .TalentTree-name {
-  color: white;
+  color: #e6c98a;
   margin-bottom: var(--sp-xs);
+  text-shadow: 0 0 6px rgba(255, 180, 60, 0.15);
+  letter-spacing: 0.5px;
 }
 
 .TalentTree-pointsSpent {
-  font-size: 0.75rem;
-  color: var(--col-yellow);
+  font-size: 1rem;
+  color: #d4af37;
+  text-shadow: 0 0 4px rgba(212, 175, 55, 0.25);
 }
 
 .TalentTree-grid {
@@ -31,8 +40,10 @@
   padding: var(--sp-md);
   grid-template-columns: repeat(4, var(--icon-size));
   grid-template-rows: repeat(7, var(--icon-size));
-  grid-gap: var(--sp-md);
-  background-size: cover;
+  gap: var(--sp-md);
+  background: radial-gradient(circle at center, #121212, #080808);
+  border-top: 1px solid rgba(255, 180, 60, 0.08);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
 
   grid-template-areas:
     "a1 a2 a3 a4"

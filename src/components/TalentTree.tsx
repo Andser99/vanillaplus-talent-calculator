@@ -9,11 +9,18 @@ import { ClearButton } from "./ClearButton";
 import { getTreePointsSpent, getTreeData } from "../TalentContext/selectors";
 import { getTalentVersion } from "../TalentContext/versionProvider";
 
+const images = require.context(
+  "../assets/tree-backgrounds",
+  true,
+  /\.(png|jpg|jpeg)$/
+);
+
 interface Props {
+  className: string;
   name: string;
 }
 
-export const TalentTree: React.FC<Props> = ({ name, children }) => {
+export const TalentTree: React.FC<Props> = ({ className, name, children }) => {
   const { state, data, resetTree } = useTalentContext();
   const pointsSpent = getTreePointsSpent(state, name);
   const treeData = getTreeData(data, name);
@@ -35,7 +42,8 @@ export const TalentTree: React.FC<Props> = ({ name, children }) => {
         </header>
         <div
           className="TalentTree-grid"
-          style={{ backgroundImage: `url(${treeData[getTalentVersion()].background})` }}
+          style={{
+            backgroundImage: `url(${images(`./${className.toLowerCase()}/${treeData[getTalentVersion()].background}.jpg`)}` }}
         >
           {Object.keys(treeData[getTalentVersion()].talents).map(talentName => (
             <Talent key={talentName} name={talentName} />

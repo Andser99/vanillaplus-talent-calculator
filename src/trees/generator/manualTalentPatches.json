@@ -25,5 +25,15 @@
                     ]
                 ]
         }
+    ],
+    "Swiftbloom": [
+        {
+            "property": "descriptions",
+            "value": [
+                [
+                    "Increases your casting speed by 20% and reduces the global cooldown of your spells by 0.5 sec."
+                ]
+            ]
+        }
     ]
 }

@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
 import { Route } from "react-router-dom";
 import exampleTree from "./trees/Druid/Balance.json"
+import logo from "./assets/smlogo.png";
 
 import "./App.css";
 import { KlassList } from "./components/KlassList";
@@ -22,24 +23,37 @@ export default function NumberDropdown() {
   );
 
   return (
-    <div>
-      <p style={{color: "#ffd100", paddingBottom: "5px", fontSize: "large"}}>Select Talent Version</p>
-    <select
-      value={value}
-      onChange={(e) => {
-        const v = e.target.value;
-        setValue(v);
-        localStorage.setItem("talent-version", v);
-        window.location.reload();
-      }}
-    >
-      <option value="">-- Select --</option>
-      {Array.from({ length: Object.keys(exampleTree.Balance).length }, (_, i) => i).map((n) => (
-        <option key={n} value={n}>
-          {n}
-        </option>
-      ))}
-      </select></div>
+    <div style={{ textAlign: "center" }}>
+
+      {/* Scarlet Monastery Banner */}
+      <div className="sm-banner">
+        <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
+        <span>Scarlet Monastery talents are out! Make sure to select version 3.</span>
+        <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
+      </div>
+
+      <div className="version-picker">
+        <p className="version-label">Version:</p>
+
+        <select
+          className="talent-picker"
+          value={value}
+          onChange={(e) => {
+            const v = e.target.value;
+            setValue(v);
+            localStorage.setItem("talent-version", v);
+            window.location.reload();
+          }}
+        >
+          <option value="">-- Select --</option>
+          {Array.from({ length: Object.keys(exampleTree.Balance).length }, (_, i) => i).map((n) => (
+            <option key={n} value={n}>
+              {n}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 }
 

@@ -63,7 +63,7 @@ function getArrow(talent: typeof talentJson[0]) : Arrow[] {
 function getArrows(dir: ArrowDir, toX: number, toY: number, fromX: number, fromY: number): Arrow[] {
     let arrows: Arrow[] = [];
     if(dir == "left") {
-        arrows.push({to: tierToPosition(toX, toY), dir: dir, from: tierToPosition(fromX, fromY)});
+        arrows.push({to: tierToPosition(fromX, fromY), dir: dir, from: tierToPosition(toX, toY)});
         return arrows;
     }
     if(dir == "right") {
@@ -80,6 +80,11 @@ function getArrows(dir: ArrowDir, toX: number, toY: number, fromX: number, fromY
         arrows.push({to: tierToPosition(toX, toY), dir: "right-down-down", from: tierToPosition(fromX, toY)});
         return arrows;
     }
+    if (dir == "left-down") {
+        arrows.push({ to: tierToPosition(fromX, fromY), dir: "left-down", from: tierToPosition(fromX, fromY - 1) });
+        arrows.push({ to: tierToPosition(toX, toY), dir: "left-down-down", from: tierToPosition(fromX, toY) });
+        return arrows;
+    }
 
     return arrows;
 }
@@ -87,11 +92,14 @@ function getArrows(dir: ArrowDir, toX: number, toY: number, fromX: number, fromY
 function getDirection(toX: number, toY: number, fromX: number, fromY: number): ArrowDir {
     if (toY > fromY && toX > fromX)
         return "right-down";
-    if (toY > fromY) {
+    if (toY < fromY && toX > fromX)
+        return "left-down";
+
+    if (toY > fromY)
         return "right";
-    }
     if (toY < fromY)
         return "left";
+
     if (toX > fromX)
         return "down";
     return "down";

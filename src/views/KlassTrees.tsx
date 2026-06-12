@@ -59,7 +59,7 @@ export const KlassTrees = withRouter<Props, React.FC<Props>>(
         <div className="KlassTrees">
           <div className="KlassTrees-header">
             <div className="KlassTrees-titleArea">
-              <h1>
+              <h1 className="KlassTrees-className">
                 {klass} {treePointsSpent}
               </h1>
               <p className="KlassTrees-summary">
@@ -71,7 +71,7 @@ export const KlassTrees = withRouter<Props, React.FC<Props>>(
           </div>
           <div className="KlassTrees-list">
             {treeNames.map(name => (
-              <TalentTree key={name} name={name} />
+              <TalentTree key={name} className={klass} name={name} />
             ))}
           </div>
         </div>
