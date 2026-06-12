@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[79],{69791:function(e,t,n){n.r(t),n.d(t,{default:function(){return i}});var a=n(72791),r=n.n(a),u=n(66479),s={"Beast Mastery":(0,u.c)("Hunter","Beast Mastery"),Marksmanship:(0,u.c)("Hunter","Marksmanship"),Survival:(0,u.c)("Hunter","Survival")},c=n(72485),l=(0,n(55538).iD)(s),i=function(){return r().createElement(l,null,r().createElement(c.s,{klass:"Hunter"}))}}}]);
+//# sourceMappingURL=79.3397efc4.chunk.js.map

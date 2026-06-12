@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[214],{76425:function(e,n,t){t.r(n),t.d(n,{default:function(){return i}});var a=t(72791),c=t.n(a),r=t(66479),l={Arcane:(0,r.c)("Mage","Arcane"),Fire:(0,r.c)("Mage","Fire"),Frost:(0,r.c)("Mage","Frost")},u=t(72485),s=(0,t(55538).iD)(l),i=function(){return c().createElement(s,null,c().createElement(u.s,{klass:"Mage"}))}}}]);
+//# sourceMappingURL=214.ce9f3142.chunk.js.map

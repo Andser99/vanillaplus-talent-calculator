@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[729],{75901:function(e,t,n){n.r(t),n.d(t,{default:function(){return u}});var c=n(72791),l=n.n(c),i=n(66479),s={Discipline:(0,i.c)("Priest","Discipline"),Holy:(0,i.c)("Priest","Holy"),Shadow:(0,i.c)("Priest","Shadow")},a=n(72485),r=(0,n(55538).iD)(s),u=function(){return l().createElement(r,null,l().createElement(a.s,{klass:"Priest"}))}}}]);
+//# sourceMappingURL=729.26eff996.chunk.js.map

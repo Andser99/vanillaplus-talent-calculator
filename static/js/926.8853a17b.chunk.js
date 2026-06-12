@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktalent_calc=self.webpackChunktalent_calc||[]).push([[926],{22705:function(r,e,t){t.r(e),t.d(e,{default:function(){return o}});var n=t(72791),c=t.n(n),a=t(66479),u={Arms:(0,a.c)("Warrior","Arms"),Fury:(0,a.c)("Warrior","Fury"),Protection:(0,a.c)("Warrior","Protection")},l=t(72485),i=(0,t(55538).iD)(u),o=function(){return c().createElement(i,null,c().createElement(l.s,{klass:"Warrior"}))}}}]);
+//# sourceMappingURL=926.8853a17b.chunk.js.map
