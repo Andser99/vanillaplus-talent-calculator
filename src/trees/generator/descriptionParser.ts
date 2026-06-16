@@ -133,11 +133,13 @@ function parseB(replacement: Replacement, description: string, currentIndex: ref
 
 function parseO(replacement: Replacement, description: string, currentIndex: refNumber) {
     replacement.columnName = "EffectAmplitude_1";
+
     if (description[currentIndex.value + 1] >= '0' && description[currentIndex.value + 1] <= '9') {
         currentIndex.value++;
         let parsedNumber = parseNumber(description, currentIndex, replacement);
+
         replacement.columnName = "EffectAmplitude_" + parsedNumber;
-        replacement.transform = effectAmplitudeTransform;
+        replacement.indexTable = "Spell";
     }
 }
 

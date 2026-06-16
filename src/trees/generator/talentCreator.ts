@@ -118,11 +118,8 @@ function getCooldown(spells: any) {
 
 function getCastTime(spells: any) {
     let spell = spells[0];
-    console.log(spell);
     if (spell["CastingTimeIndex"] > 1) {
-        console.log(spell["Name_enUS"]+ "spell has cast time index of: " + spell["CastingTimeIndex"]);
         let castTimeMs = lookupIndex("SpellCastTime", spell["CastingTimeIndex"]);
-        console.log("ms cast time from index lookup: " + castTimeMs);
         if (castTimeMs == 0) return "";
         return msToFormattedTimeCastTime(castTimeMs);
     }
@@ -178,6 +175,28 @@ function parseSpellValues(description: string, spell: any) {
 }
 
 function getReplacementString(replacement: Replacement, spell: any) {
+    if (replacement.indexTable === "Spell") {
+        const index = parseInt(replacement.columnName.split("_")[1]);
+
+        const spellId = replacement.spellId !== -1 ? replacement.spellId : spell["ID"];
+        const spellData = spellDictionary[spellId];
+
+        const amplitudeMultiplier = parseInt(spellData[`EffectAmplitude_${index}`]) / 1000;
+
+        const durationSeconds =
+            lookupIndex("SpellDuration", spellData["DurationIndex"]) / 1000;
+
+        const basePoints = parseInt(spellData[`EffectBasePoints_${index}`] || 0);
+        const dieSides = parseInt(spellData[`EffectDieSides_${index}`] || 0);
+        const baseDice = parseInt(spellData[`EffectBaseDice_${index}`] || 0);
+
+        const result =
+            durationSeconds *
+            (basePoints + dieSides * baseDice) / amplitudeMultiplier;
+
+        return result.toString();
+    }
+    
     if (replacement.spellId !== -1) {
         spell = spellDictionary[replacement.spellId];
     }
@@ -215,6 +234,21 @@ function getReplacementString(replacement: Replacement, spell: any) {
     }
     else {
         let value = parseInt(spell[replacement.columnName]) + dieIncrease;
+
+        const index = replacement.dieIndex;
+
+        const dieSides = parseInt(spell[`EffectDieSides_${index}`] || 0);
+        const baseDice = parseInt(spell[`EffectBaseDice_${index}`] || 0);
+
+        if (dieSides > 1 && baseDice > 0) {
+            const basePoints = parseInt(spell[`EffectBasePoints_${index}`] || 0);
+
+            const min = Math.abs(basePoints);
+            const max = Math.abs(basePoints + dieSides * baseDice);
+
+            return `${replacement.transform(min.toString())} to ${replacement.transform(max.toString())}`;
+        }
+
         result = replacement.transform(value.toString());
     }
 
