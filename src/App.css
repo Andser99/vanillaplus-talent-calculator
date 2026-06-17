@@ -90,3 +90,34 @@
     0 0 2px rgba(255, 209, 0, 0.3),
     inset 0 0 4px rgba(0, 0, 0, 0.6);
 }
+
+.addon-info {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.addon-info:hover .addon-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.addon-tooltip {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 260px;
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  line-height: 1.4;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

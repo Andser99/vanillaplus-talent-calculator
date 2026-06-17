@@ -55,12 +55,21 @@ export default function NumberDropdown() {
         </select>
 
         <a
-          href={`${process.env.PUBLIC_URL}/TalentLinKExporter.zip`}
+          href={`${process.env.PUBLIC_URL}/TalentLinkExporter.zip`}
           download
           className="addon-download-btn"
         >
           Download Link Sharing Addon
         </a>
+        <div>
+          <span className="addon-info" aria-label="Version info">
+            ⓘ
+            <span className="addon-tooltip">
+              Adds a "Get Build Link" button on top of your talents.<br/>
+              Generates a link for this talent calculator from your current talents.
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   );
