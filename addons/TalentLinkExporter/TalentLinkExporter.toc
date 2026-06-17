@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: Talent Link Exporter
+## Author: Andser
+## Notes: Button for generating a talent build website link.
+## Version: 1.0
+
+TalentLinkExporter.lua

@@ -33,7 +33,7 @@ export default function NumberDropdown() {
         <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
       </div>
 
-      <div className="version-picker">
+      <div className="version-picker" style={{ display: "flex", justifyContent: "center", gap: "10px", alignItems: "center" }}>
         <p className="version-label">Version:</p>
 
         <select
@@ -53,6 +53,14 @@ export default function NumberDropdown() {
             </option>
           ))}
         </select>
+
+        <a
+          href={`${process.env.PUBLIC_URL}/TalentLinKExporter.zip`}
+          download
+          className="addon-download-btn"
+        >
+          Download Link Sharing Addon
+        </a>
       </div>
     </div>
   );
