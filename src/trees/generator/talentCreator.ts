@@ -107,12 +107,17 @@ function getDirection(toX: number, toY: number, fromX: number, fromY: number): A
 
 function getCooldown(spells: any) {
     let spell = spells[0];
-    if (spell["CategoryRecoveryTime"] != 0) {
-        return msToFormattedTime(spell["CategoryRecoveryTime"]) + " cooldown";
+    let categoryRecoverytime = parseInt(spell["CategoryRecoveryTime"]);
+    let recoveryTime = parseInt(spell["RecoveryTime"]);
+
+    if (categoryRecoverytime != 0 && categoryRecoverytime > recoveryTime) {
+        return msToFormattedTime(categoryRecoverytime.toString()) + " cooldown";
     }
-    else if (spell["RecoveryTime"] != 0) {
-        return msToFormattedTime(spell["RecoveryTime"]) + " cooldown";
+
+    if (recoveryTime != 0) {
+        return msToFormattedTime(recoveryTime.toString()) + " cooldown";
     }
+
     return "";
 }
 
