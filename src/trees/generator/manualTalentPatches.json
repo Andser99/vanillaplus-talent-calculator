@@ -35,5 +35,25 @@
                 ]
             ]
         }
+    ],
+    "Earth Shield": [
+        {
+            "property": "dependencyName",
+            "value": "Improved Elemental Shields"
+        },
+        {
+            "property": "descriptions",
+            "value": [
+                [
+                    "Regenerates 1% of your Health every 5 sec, increases your chance to block by 30% and allows you to block without a shield. Blocking also restores 1% of your Health. Lasts 10 minutes or 10 blocks."
+                ],
+                [
+                    "Regenerates 1.1% of your Health every 5 sec, increases your chance to block by 33% and allows you to block without a shield. Blocking also restores 1.1% of your Health. Lasts 10 minutes or 12 blocks."
+                ],
+                [
+                    "Regenerates 1.2% of your Health every 5 sec, increases your chance to block by 36% and allows you to block without a shield. Blocking also restores 1.2% of your Health. Lasts 10 minutes or 14 blocks."
+                ]
+            ]
+        }
     ]
 }
