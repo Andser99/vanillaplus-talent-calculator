@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useState } from "react";
 import { Route } from "react-router-dom";
 import exampleTree from "./trees/Druid/Balance.json"
 import logo from "./assets/smlogo.png";
+import { LatestVersionDescription } from "./TalentContext/TalentIdToVersion";
 
 import "./App.css";
 import { KlassList } from "./components/KlassList";
@@ -29,7 +30,7 @@ export default function NumberDropdown() {
       {/* Scarlet Monastery Banner */}
       <div className="sm-banner">
         <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
-        <span>Scarlet Monastery talents are out! Make sure to select version 3.</span>
+        <span>Latest patch: {LatestVersionDescription()}</span>
         <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
       </div>
 

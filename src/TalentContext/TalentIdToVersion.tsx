@@ -9,3 +9,8 @@ const IdToDate: Record<number, string> = {
 export function TalentIdToVersion(n: number): string | undefined {
   return IdToDate[n];
 }
+
+export function LatestVersionDescription(): string {
+  const latestVersion = Math.max(...Object.keys(IdToDate).map(Number));
+  return `V${latestVersion} --- ${IdToDate[latestVersion]}`;
+}
