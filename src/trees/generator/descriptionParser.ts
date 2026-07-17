@@ -91,6 +91,9 @@ function parseColumnName(description: string, currentIndex: refNumber, replaceme
     else if (currentSymbol === 't') {
         parseT(description, currentIndex, replacement);
     }
+    else if (currentSymbol === 'i') {
+        parseI(replacement);
+    }
     else if (currentSymbol === 'l') {
         parseL(description, currentIndex, replacement);
     }
@@ -159,8 +162,16 @@ function parseT(description: string, currentIndex: refNumber, replacement: Repla
         currentIndex.value++;
         let parsedNumber = parseNumber(description, currentIndex, replacement);
         replacement.columnName = "EffectAmplitude_" + parsedNumber;
-        replacement.transform = effectAmplitudeTransform;
     }
+    else {
+        replacement.columnName = "EffectAmplitude_1";
+    }
+
+    replacement.transform = effectAmplitudeTransform;
+}
+
+function parseI(replacement: Replacement){
+    replacement.columnName = "MaxTargets";
 }
 
 function parseL(description: string, currentIndex: refNumber, replacement: Replacement) {
@@ -272,7 +283,7 @@ export interface Replacement {
 
 // Test functions, run using `npx tsx <path_to_this_file>`
 function testParse() {
-    let test1 = "Fills the $lPaladin:paladins; with $d, equal to $34092s1% of Paladin. $/1000;S1, $u $o $t $d $b.\n";
+    let test1 = "Fills the $lPaladin:paladins; with $d, equal to $34092s1% of Paladin. $/1000;S1, $u $o $34092t $d $b.\n";
     let replacements = parse(test1);
     console.log(replacements);
 }
