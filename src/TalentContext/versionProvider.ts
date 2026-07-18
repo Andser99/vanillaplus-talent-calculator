@@ -15,3 +15,13 @@ export function getTalentVersion() {
 export function setTalentVersion(version: string) {
     localStorage.setItem('talent-version', version);
 }
+
+
+
+export function isUsingLatestVersion(): boolean {
+    let highest = Object.keys(exampleTree.Balance).length - 1;
+    let version = parseInt(localStorage.getItem('talent-version') || highest.toString()) || 0;
+    console.log("Current ver = " + version);
+    console.log("Highest ver = " + highest);
+    return highest == version;
+}

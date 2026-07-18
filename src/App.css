@@ -35,11 +35,12 @@
 
 .sm-banner {
   user-select: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   margin-top: 8px;
   color: #ffd100;
   font-weight: bold;
   text-shadow: 0 0 4px #c41e3a;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,6 +52,7 @@
 }
 
 .version-picker {
+  padding-top: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +62,12 @@
   color: #ffd100;
   padding-right: 5px;
   font-size: large;
+}
+
+@media (max-width: 768px) {
+  .addon-download-btn, .addon-info {
+    visibility:collapse;
+  }
 }
 
 .addon-download-btn {

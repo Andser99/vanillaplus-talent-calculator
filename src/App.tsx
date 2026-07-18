@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import exampleTree from "./trees/Druid/Balance.json"
 import logo from "./assets/smlogo.png";
 import { LatestVersionDescription } from "./TalentContext/TalentIdToVersion";
+import { isUsingLatestVersion } from "./TalentContext/versionProvider";
 
 import "./App.css";
 import { KlassList } from "./components/KlassList";
@@ -26,13 +27,6 @@ export default function NumberDropdown() {
 
   return (
     <div style={{ textAlign: "center" }}>
-
-      {/* Scarlet Monastery Banner */}
-      <div className="sm-banner">
-        <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
-        <span>Latest patch: {LatestVersionDescription()}</span>
-        <img src={logo} alt="Scarlet Monastery" className="sm-banner-logo" />
-      </div>
 
       <div className="version-picker" style={{ display: "flex", justifyContent: "center", gap: "10px", alignItems: "center" }}>
         <p className="version-label">Version:</p>
@@ -72,6 +66,13 @@ export default function NumberDropdown() {
           </span>
         </div>
       </div>
+
+      <div style={{ display: !isUsingLatestVersion() ? "block" : "none" }} className="sm-banner">
+        <span>
+          ⚠️ You are viewing an older talent tree. A more recent talent version is available! ⚠️ {LatestVersionDescription()}
+        </span>
+      </div>
+      
     </div>
   );
 }
