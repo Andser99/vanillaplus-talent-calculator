@@ -18,9 +18,11 @@ import {
 
 interface Props {
   name: string;
+  onEditTalent?: (name: string) => void;
 }
 
-export const Talent: React.FC<Props> = ({ name }) => {
+
+export const Talent: React.FC<Props> = ({ name, onEditTalent }) => {
   const tree = useTreeContext();
   const { state, data, spendPoint, unspendPoint } = useTalentContext();
 
@@ -70,11 +72,22 @@ export const Talent: React.FC<Props> = ({ name }) => {
         <SquareButton
           onClick={() => spendPoint(tree, name)}
           onRightClick={() => unspendPoint(tree, name)}
+          onMouseDown={event => {
+            if (
+              (event.button === 0 || event.button === 1) &&
+              event.shiftKey
+            ) {
+              event.preventDefault();
+              onEditTalent?.(name);
+            }
+          }}
+          
           icon={icon}
           disabled={talentState === "locked"}
           outline={outlineColor}
           {...anchorProps}
         />
+
         {talentState !== "locked" && (
           <div
             className={`Talent-pointCount Talent-pointCount--${outlineColor}`}

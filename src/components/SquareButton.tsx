@@ -13,6 +13,7 @@ interface Props {
   style?: React.CSSProperties;
   onClick?: () => void;
   onRightClick?: () => void;
+  onMouseDown?: React.MouseEventHandler<HTMLButtonElement>;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
 }

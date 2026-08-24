@@ -19,6 +19,7 @@ const Shaman = lazy(() => import("./trees/Shaman"));
 const Warlock = lazy(() => import("./trees/Warlock"));
 const Warrior = lazy(() => import("./trees/Warrior"));
 const ScarletMonastery = lazy(() => import("./trees/ScarletMonastery"));
+const Editor = lazy(() => import("./trees/Editor"));
 
 export default function NumberDropdown() {
   const [value, setValue] = useState(
@@ -93,6 +94,7 @@ export const App: React.FC = () => {
         <Route path="/warlock" component={Warlock} />
         <Route path="/warrior" component={Warrior} />
         <Route path="/scarletmonastery" component={ScarletMonastery} />
+        <Route path="/editor" component={Editor} />
       </Suspense>
     </div>
   );

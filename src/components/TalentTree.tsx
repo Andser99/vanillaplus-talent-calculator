@@ -18,9 +18,10 @@ const images = require.context(
 interface Props {
   className: string;
   name: string;
+  onEditTalent?: (name: string) => void;
 }
 
-export const TalentTree: React.FC<Props> = ({ className, name, children }) => {
+export const TalentTree: React.FC<Props> = ({ className, name, children, onEditTalent }) => {
   const { state, data, resetTree } = useTalentContext();
   const pointsSpent = getTreePointsSpent(state, name);
   const treeData = getTreeData(data, name);
@@ -46,7 +47,12 @@ export const TalentTree: React.FC<Props> = ({ className, name, children }) => {
             backgroundImage: `url(${images(`./${className.toLowerCase()}/${treeData[getTalentVersion()].background}.jpg`)}` }}
         >
           {Object.keys(treeData[getTalentVersion()].talents).map(talentName => (
-            <Talent key={talentName} name={talentName} />
+            <Talent
+              key={talentName}
+              name={talentName}
+              onEditTalent={onEditTalent}
+            />
+          
           ))}
           {children}
         </div>
