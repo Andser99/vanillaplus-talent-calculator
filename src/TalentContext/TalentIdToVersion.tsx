@@ -5,6 +5,7 @@ const IdToDate: Record<number, string> = {
   3: "2026-06-24",
   4: "2026-07-17",
   5: "2026-08-04",
+  6: "2026-09-01",
 };
 
 export function TalentIdToVersion(n: number): string | undefined {
